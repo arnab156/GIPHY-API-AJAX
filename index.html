@@ -1,0 +1,43 @@
+
+<html lang="en-us">
+
+    <head>
+    
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Tennis Giffy!</title>
+    
+      <!-- Bootstrap -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+
+    <style>
+        body {
+            background-image: url("tennis.jpg");
+            }
+    </style>
+    </head>
+
+    <body>
+        <div class="container-fluid text-center" style="font-family: 'Amatic SC', cursive; font-size: 30px; color: white">
+            <div class="row"> 
+                <div id = "btnPanel" class="col-sm-12" style="background-color: none; "> Button Panel</div>  
+            </div>    
+            <div class="row"> 
+                    <div id = "gifPanel" class="col-sm-8 row" style="background-color: none;"> </div>  
+                    <div id = "searchPanel" class="col-sm-4" style="background-color: none;"> <br>
+                        <form id="tennis-form">
+                                <label for="tennis-input">Add a Pro Tennis Player</label>
+                                <input type="text" id="tennis-input"><br>
+                                <!-- Button triggers new movie to be added -->
+                                <input id="add-player" type="submit" value="Add a Pro Tennis Player">
+                                </form>
+                    </div>  
+            </div>
+        </div>
+    </body>
+    <script src="app.js"></script>
+        
+
+</html>
