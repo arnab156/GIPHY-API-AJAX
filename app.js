@@ -31,8 +31,8 @@ function createGif() {
     // change the player to array index.
 
     console.log(player);
-    // Constructing a queryURL using the player name Api Key:w9g39G9G9nZVdYiPeJpcpyZQDbhxdUQG
-    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +player + "&api_key=w9g39G9G9nZVdYiPeJpcpyZQDbhxdUQG";
+    // Constructing a queryURL using the player name Api Key:w9g39G9G9nZVdYiPeJpcpyZQDbhxdUQG &limit=10 to limit to 10 results
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +player + "&api_key=w9g39G9G9nZVdYiPeJpcpyZQDbhxdUQG&limit=10";
     // Performing an AJAX request with the queryURL
     $.ajax({
         url: queryURL,
