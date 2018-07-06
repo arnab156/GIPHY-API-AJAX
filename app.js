@@ -35,7 +35,7 @@ function createGif() {
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +player + "&api_key=w9g39G9G9nZVdYiPeJpcpyZQDbhxdUQG&limit=10";
     // Performing an AJAX request with the queryURL
     $.ajax({
-        url: queryURL,
+        url: queryURL, 
         method: "GET"
     })
         // After data comes back from the request
@@ -52,25 +52,28 @@ function createGif() {
 
             // Creating a paragraph tag with the result item's rating
             var p = $("<p>").text("Rating: " + results[i].rating);
-
+            var title = $("<p>").text("Title: " + results[i].title);
             // Creating and storing an image tag
-            var playerImage = $("<img>");
-            var dataStill =results[i].images.fixed_height_small_still.url;
+            var playerImage = $("<img style='height:200px; width:200px;'>");
+            var dataStill =results[i].images.fixed_height_still.url;
             var dataAnimate = results[i].images.fixed_height.url;
             // Setting the src attribute of the image to a property pulled off the result item
             playerImage.attr("src", dataStill);
-            playerImage.attr("class", "displayGif img-fluid");
+            playerImage.attr("class", "displayGif img-fluid text-bold");
+            playerImage.attr("alt", "Gif Not Downloading");
             playerImage.attr ("data-state", "still");
             playerImage.attr ("data-still", dataStill);
             playerImage.attr ("data-animate", dataAnimate);
             // Appending the paragraph and image tag to the playerDiv
-            playerDiv.append(p);
+           
             // playerDiv.append("<a  href='"+dataStill+ "'download>");
-            playerDiv.append(playerImage);
+            playerDiv.prepend(playerImage);
             var gifBtn = $("<a href='"+dataStill+ "' class='btn btn-secondary btn-sm btn-block active' role='button' download ='"+dataStill+ "' > Download </a>");
             // var gifBtn = $("<button class = 'btn btn-secondary btn-sm btn-block active' download>")
             playerDiv.append(gifBtn);
             $("#gifPanel").prepend(playerDiv);
+            playerDiv.append(title);
+            playerDiv.append(p);
         }
         $(".displayGif" ).on( "click", changeState);
         });
