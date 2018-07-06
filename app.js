@@ -59,22 +59,22 @@ function createGif() {
             var dataAnimate = results[i].images.fixed_height.url;
             // Setting the src attribute of the image to a property pulled off the result item
             playerImage.attr("src", dataStill);
-            playerImage.attr("class", "displayGif");
+            playerImage.attr("class", "displayGif img-fluid");
             playerImage.attr ("data-state", "still");
             playerImage.attr ("data-still", dataStill);
             playerImage.attr ("data-animate", dataAnimate);
             // Appending the paragraph and image tag to the playerDiv
             playerDiv.append(p);
+            // playerDiv.append("<a  href='"+dataStill+ "'download>");
             playerDiv.append(playerImage);
-
-            // Prependng the player div to the HTML page in the "gif panel" div
+            var gifBtn = $("<a href='"+dataStill+ "' class='btn btn-secondary btn-sm btn-block active' role='button' download ='"+dataStill+ "' > Download </a>");
+            // var gifBtn = $("<button class = 'btn btn-secondary btn-sm btn-block active' download>")
+            playerDiv.append(gifBtn);
             $("#gifPanel").prepend(playerDiv);
         }
         $(".displayGif" ).on( "click", changeState);
         });
 }
-
-
 
 function changeState() {
 // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
